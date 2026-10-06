@@ -1,0 +1,39 @@
+GIẢI THÍCH PHẦN AI - TF-IDF + COSINE SIMILARITY
+
+1. Bài toán
+Người dùng nhập một câu hỏi pháp luật giao thông tự nhiên.
+Hệ thống cần tìm câu hỏi/văn bản pháp luật có nội dung gần với câu hỏi đó.
+
+2. TF-IDF
+TF (Term Frequency): từ xuất hiện càng nhiều trong một văn bản thì TF càng cao.
+IDF (Inverse Document Frequency): từ xuất hiện ở quá nhiều văn bản sẽ có IDF thấp;
+từ xuất hiện ít nhưng đặc trưng cho một số văn bản sẽ có IDF cao.
+
+TF-IDF = TF × IDF.
+
+3. Cosine Similarity
+Sau khi chuyển câu hỏi và dữ liệu thành vector TF-IDF, hệ thống tính:
+cos(A,B) = (A.B) / (||A|| × ||B||)
+
+Giá trị càng gần 1 thì hai văn bản càng giống nhau.
+
+4. Ví dụ
+Người dùng nhập:
+"xe máy không đội nón bảo hiểm bị phạt thế nào?"
+
+Trong dữ liệu có:
+"Xe máy không đội mũ bảo hiểm có bị phạt không?"
+
+Do "xe máy", "đội", "bảo hiểm", "mũ/nón" và các cụm liên quan xuất hiện
+tương đồng, kết quả có Cosine Similarity cao và được đưa lên đầu.
+
+5. Vì sao chọn TF-IDF?
+- Phù hợp dữ liệu đồ án nhỏ.
+- Không cần máy có GPU.
+- Không cần API trả phí.
+- Có thể chạy hoàn toàn bằng PHP.
+- Dễ giải thích với môn Trí tuệ nhân tạo.
+
+6. Hạn chế
+TF-IDF chủ yếu dựa trên sự xuất hiện của từ/cụm từ nên chưa hiểu ngữ nghĩa
+sâu như BERT. Có thể nâng cấp tiếp lên Word2Vec hoặc BERT khi cần.
